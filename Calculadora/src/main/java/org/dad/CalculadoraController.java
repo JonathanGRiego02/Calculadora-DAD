@@ -2,11 +2,13 @@ package org.dad;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -266,6 +268,16 @@ public class CalculadoraController implements Initializable {
   void onOperarAction(ActionEvent event) {
 
   }
+  public CalculadoraController() {
+    try {
+      FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/CalculadoraView.fxml"));
+      loader.setController(this);
+      loader.load();
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
+  }
+
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
