@@ -11,6 +11,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class CalculadoraController implements Initializable {
+  // Model
+  Calculadora mi_calculadora = new Calculadora();
 
   // View
 
@@ -75,6 +77,169 @@ public class CalculadoraController implements Initializable {
   @FXML
   private Button sumButton;
 
+  // Getters y Setters
+
+
+  public Button getcButton() {
+    return cButton;
+  }
+
+  public void setcButton(Button cButton) {
+    this.cButton = cButton;
+  }
+
+  public Button getCeButton() {
+    return ceButton;
+  }
+
+  public void setCeButton(Button ceButton) {
+    this.ceButton = ceButton;
+  }
+
+  public Button getDivButton() {
+    return divButton;
+  }
+
+  public void setDivButton(Button divButton) {
+    this.divButton = divButton;
+  }
+
+  public Button getMulButton() {
+    return mulButton;
+  }
+
+  public void setMulButton(Button mulButton) {
+    this.mulButton = mulButton;
+  }
+
+  public Button getIgualButton() {
+    return igualButton;
+  }
+
+  public void setIgualButton(Button igualButton) {
+    this.igualButton = igualButton;
+  }
+
+  public Button getRestaButton() {
+    return restaButton;
+  }
+
+  public void setRestaButton(Button restaButton) {
+    this.restaButton = restaButton;
+  }
+
+  public Button getCeroButton() {
+    return ceroButton;
+  }
+
+  public void setCeroButton(Button ceroButton) {
+    this.ceroButton = ceroButton;
+  }
+
+  public Button getUnoButton() {
+    return unoButton;
+  }
+
+  public void setUnoButton(Button unoButton) {
+    this.unoButton = unoButton;
+  }
+
+  public Button getDosButton() {
+    return dosButton;
+  }
+
+  public void setDosButton(Button dosButton) {
+    this.dosButton = dosButton;
+  }
+
+  public Button getTresButton() {
+    return tresButton;
+  }
+
+  public void setTresButton(Button tresButton) {
+    this.tresButton = tresButton;
+  }
+
+  public Button getCuatroButton() {
+    return cuatroButton;
+  }
+
+  public void setCuatroButton(Button cuatroButton) {
+    this.cuatroButton = cuatroButton;
+  }
+
+  public Button getCincoButton() {
+    return cincoButton;
+  }
+
+  public void setCincoButton(Button cincoButton) {
+    this.cincoButton = cincoButton;
+  }
+
+  public Button getSeisButton() {
+    return seisButton;
+  }
+
+  public void setSeisButton(Button seisButton) {
+    this.seisButton = seisButton;
+  }
+
+  public Button getSieteButton() {
+    return sieteButton;
+  }
+
+  public void setSieteButton(Button sieteButton) {
+    this.sieteButton = sieteButton;
+  }
+
+  public Button getOchoButton() {
+    return ochoButton;
+  }
+
+  public void setOchoButton(Button ochoButton) {
+    this.ochoButton = ochoButton;
+  }
+
+  public Button getNueveButton() {
+    return nueveButton;
+  }
+
+  public void setNueveButton(Button nueveButton) {
+    this.nueveButton = nueveButton;
+  }
+
+  public TextField getPantallaTextField() {
+    return pantallaTextField;
+  }
+
+  public void setPantallaTextField(TextField pantallaTextField) {
+    this.pantallaTextField = pantallaTextField;
+  }
+
+  public Button getPuntoButton() {
+    return puntoButton;
+  }
+
+  public void setPuntoButton(Button puntoButton) {
+    this.puntoButton = puntoButton;
+  }
+
+  public GridPane getRoot() {
+    return root;
+  }
+
+  public void setRoot(GridPane root) {
+    this.root = root;
+  }
+
+  public Button getSumButton() {
+    return sumButton;
+  }
+
+  public void setSumButton(Button sumButton) {
+    this.sumButton = sumButton;
+  }
+
   @FXML
   void onBorrarAction(ActionEvent event) {
 
@@ -92,7 +257,9 @@ public class CalculadoraController implements Initializable {
 
   @FXML
   void onDigitAction(ActionEvent event) {
-
+    Button clickedButton = (Button) event.getSource();
+    char digito = clickedButton.getText().charAt(0);
+    mi_calculadora.insertar(digito);
   }
 
   @FXML
