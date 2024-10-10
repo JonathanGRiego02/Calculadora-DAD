@@ -1,5 +1,8 @@
 package org.dad;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +18,8 @@ import java.util.ResourceBundle;
 public class CalculadoraController implements Initializable {
   // Model
   Calculadora mi_calculadora = new Calculadora();
+
+  StringProperty pantallaP = new SimpleStringProperty();
 
   // View
 
@@ -244,17 +249,20 @@ public class CalculadoraController implements Initializable {
 
   @FXML
   void onBorrarAction(ActionEvent event) {
-
+    mi_calculadora.borrar();
+    pantallaP.set(mi_calculadora.getPantalla());
   }
 
   @FXML
   void onBorrarTodoAction(ActionEvent event) {
-
+    mi_calculadora.borrarTodo();
+    pantallaP.set(mi_calculadora.getPantalla());
   }
 
   @FXML
   void onComaAction(ActionEvent event) {
-
+    mi_calculadora.insertarComa();
+    pantallaP.set(mi_calculadora.getPantalla());
   }
 
   @FXML
@@ -262,12 +270,24 @@ public class CalculadoraController implements Initializable {
     Button clickedButton = (Button) event.getSource();
     char digito = clickedButton.getText().charAt(0);
     mi_calculadora.insertar(digito);
+    pantallaP.set(mi_calculadora.getPantalla());
   }
 
   @FXML
   void onOperarAction(ActionEvent event) {
+    Button clickedButton = (Button) event.getSource();
+    char operador = clickedButton.getText().charAt(0);
 
+    mi_calculadora.operar(operador);  
+    pantallaP.set(mi_calculadora.getPantalla());
   }
+
+  @FXML
+  void onIgualAction(ActionEvent event) {
+    mi_calculadora.operar(Calculadora.IGUAL);  // Realiza la operación acumulada
+    pantallaP.set(mi_calculadora.getPantalla());
+  }
+
   public CalculadoraController() {
     try {
       FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/CalculadoraView.fxml"));
@@ -281,6 +301,11 @@ public class CalculadoraController implements Initializable {
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
+    // Binds
+    pantallaTextField.textProperty().bind(pantallaP);
+
+    // Iniciar el valor de pantallaP con el valor inicial de la calculadora
+    pantallaP.set(mi_calculadora.getPantalla());
 
   }
 }

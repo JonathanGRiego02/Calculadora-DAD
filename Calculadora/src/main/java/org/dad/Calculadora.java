@@ -1,7 +1,7 @@
 package org.dad;
 
 /**
- * Implementaci髇 de la l骻ica de una calculadora.
+ * Implementaci贸n de la l贸gica de una calculadora.
  * @author Fran Vargas
  */
 public class Calculadora {
@@ -32,7 +32,7 @@ public class Calculadora {
 	}
 
 	/**
-	 * Inicializa por completo la calculadora, borrando la informaci髇 que tiene memorizada y la pantalla.
+	 * Inicializa por completo la calculadora, borrando la informaci贸n que tiene memorizada y la pantalla.
 	 */
 	public void borrar() {
 		operando = 0.0;
@@ -41,7 +41,7 @@ public class Calculadora {
 	}
 
 	/**
-	 * Borra lo que hay en la pantalla (el 鷏timo operando introducido).
+	 * Borra lo que hay en la pantalla (el 煤ltimo operando introducido).
 	 */
 	public void borrarTodo() {
 		nuevoOperando = true;
@@ -49,8 +49,8 @@ public class Calculadora {
 	}
 
 	/**
-	 * Indica a la calculadora que realice la operaci髇 indicada.
-	 * @param operador Operaci髇 a realizar; usar una constante: IGUAL, SUMAR, RESTAR, MULTIPLICAR, DIVIDIR.
+	 * Indica a la calculadora que realice la operaci贸n indicada.
+	 * @param operador Operaci贸n a realizar; usar una constante: IGUAL, SUMAR, RESTAR, MULTIPLICAR, DIVIDIR.
 	 */
 	public void operar(char operador) {
 		nuevoOperando = true;
@@ -76,8 +76,8 @@ public class Calculadora {
 	}
 
 	/**
-	 * Inserta un d韌ito en el operando actual (pantalla).
-	 * @param digito D韌ito a introducir en la pantalla.
+	 * Inserta un d铆gito en el operando actual (pantalla).
+	 * @param digito D铆gito a introducir en la pantalla.
 	 */
 	public void insertar(char digito) {
 		if (digito >= '0' && digito <= '9') {
